@@ -1,0 +1,49 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+    <h2>Simple Interest Calculator</h2>
+
+    <form id="interestForm">
+        <label for="principalAmount">Principal Amount:</label>
+        <input type="number" id="principalAmount" required>
+
+        <label for="annualInterestRate">Annual Interest Rate (as decimal):</label>
+        <input type="number" id="annualInterestRate" step="0.01" required>
+
+        <label for="investmentTime">Investment Time (in years):</label>
+        <input type="number" id="investmentTime" required>
+
+        <button type="button" onclick="calculateAndDisplayInterest()">Calculate Interest</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateSimpleInterest(principal, rate, time) {
+            const simpleInterest = principal * rate * time;
+            return simpleInterest;
+        }
+
+        function calculateAndDisplayInterest() {
+            const principalAmount = parseFloat($('#principalAmount').val());
+            const annualInterestRate = parseFloat($('#annualInterestRate').val());
+            const investmentTime = parseFloat($('#investmentTime').val());
+
+            if (isNaN(principalAmount) || isNaN(annualInterestRate) || isNaN(investmentTime)) {
+                $('#result').text('Please enter valid numeric values.');
+            } else {
+                const result = calculateSimpleInterest(principalAmount, annualInterestRate, investmentTime);
+                $('#result').text(`The simple interest is: ${result.toFixed(2)}`);
+            }
+        }
+    </script>
+
+</body>
+</html>
