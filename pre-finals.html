@@ -1,0 +1,48 @@
+<html>
+    <body>
+        <form name="form">
+            Input: <input type="number" name="number" placeholder="Enter a number">
+            <input type="button" value="Submit" onclick="checkAndDisplay()">
+        </form>
+        <p id="Input"></p>
+        <p id="EVEN"></p>
+        <p id="ODD"></p>
+        <script>
+            function isPrime(num) {
+                if (num <= 1) return false;
+                for (var i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) return false;
+                }
+                return true;
+            }
+
+            function checkAndDisplay() {
+                var a = parseInt(document.form.number.value);
+
+                if (isPrime(a)) {
+                    var input = a % 2 === 0 ? "Even" : "Odd";
+                    var message = a + " is a prime number";
+                    document.getElementById("input").innerHTML = message;
+
+                    var evenNum = "";
+                    var oddNum = "";
+
+                    for (var i = 1; i <= a; i++) {
+                        if (i % 2 === 1) {
+                            evenNum += i + " ";
+                        } else {
+                            oddNum += i + " ";
+                        }
+                    }
+
+                    document.getElementById("EVEN").innerHTML = "Even numbers: " + evenNum.trim();
+                    document.getElementById("ODD").innerHTML = "Odd numbers: " + oddNum.trim();
+                } else {
+                    document.getElementById("input").innerHTML = a + " is not a prime number";
+                    document.getElementById("EVEN").innerHTML = "";
+                    document.getElementById("ODD").innerHTML = "";
+                }
+            }
+        </script>
+    </body>
+</html>
