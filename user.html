@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data Display</title>
+</head>
+<body>
+    <h1>User Data</h1>
+    <form id="user-data-form">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required>
+        <br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required>
+        <br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        <br>
+        <label for="gender">Gender:</label>
+        <label>Male</label>
+        <input type="radio" id="gender" name="gender" required>
+        <label>Female</label>
+        <input type="radio" id="gender" name="gender" required>
+        <br>
+        <label for="birthdate">Birthdate:</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+        <br>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+        <br>
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <button type="submit" onclick="submit">Submit</button>
+    </form>
+    <h2 id="display-data"></h2>
+
+    <script>
+        // Include the User class definition here
+
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const userData = {
+                first_name: document.getElementById("first_name").value,
+                last_name: document.getElementById("last_name").value,
+                age: parseInt(document.getElementById("age").value),
+                gender: document.getElementById("gender").value,
+                birthdate: document.getElementById("birthdate").value,
+                address: document.getElementById("address").value,
+                email: document.getElementById("email").value,
+            };
+            
+                let Display = "First Name: " + userData.first_name + "<br>" + 
+                "Last Name: " + userData.last_name + "<br>" + 
+                "Age: " + userData.age + "<br>" + 
+                "Gender: " + userData.gender + "<br>" +  
+                "Birthdate" + userData.birthdate + "br" +
+                "Address" + userData.address + "br" +
+                "Email" + userData.email + "<br>";
+                document.getElementById('display-data').innercontent = Display;
+            
+        }
+   alert(hello);
+    </script>
+</body>
+</html>
