@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container{
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 120px;
+        }
+        input{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="calculator">
+        <h1>CALCULATOR</h1>
+        <input type="number" id="number1" placeholder="Enter a number"><br>
+        <input type="number" id="number2" placeholder="Enter a number"><br><br>
+        <button onclick="add()">Add</button>
+        <button onclick="subtract()">Subtract</button>
+        <button onclick="multiply()">Multiply</button>
+        <button onclick="divide()">Divide</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        class Calculator {
+            add(a, b) {
+                try {
+                    if (typeof a !== 'number' || typeof b !== 'number') {
+                        throw new Error('Input parameters must be numbers.');
+                    }
+                    return a + b;
+                } catch (error) {
+                    console.error(error.message);
+                }
+            }
+
+            subtract(a, b) {
+                try {
+                    if (typeof a !== 'number' || typeof b !== 'number') {
+                        throw new Error('Input parameters must be numbers.');
+                    }
+                    return a - b;
+                } catch (error) {
+                    console.error(error.message);
+                }
+            }
+
+            multiply(a, b) {
+                try {
+                    if (typeof a !== 'number' || typeof b !== 'number') {
+                        throw new Error('Input parameters must be numbers.');
+                    }
+                    return a * b;
+                } catch (error) {
+                    console.error(error.message);
+                }
+            }
+
+            divide(a, b) {
+                try {
+                    if (typeof a !== 'number' || typeof b !== 'number') {
+                        throw new Error('Input parameters must be numbers.');
+                    }
+                    if (b === 0) {
+                        throw new Error('Division by zero is not allowed.');
+                    }
+                    return a / b;
+                } catch (error) {
+                    console.error(error.message);
+                }
+            }
+        }
+
+        const calculator = new Calculator();
+
+        function add() {
+            const number1 = document.getElementById('number1').value;
+            const number2 = document.getElementById('number2').value;
+            const result = calculator.add(Number(number1), Number(number2));
+            document.getElementById('result').innerHTML = `Result: ${result}`;
+        }
+
+        function subtract() {
+            const number1 = document.getElementById('number1').value;
+            const number2 = document.getElementById('number2').value;
+            const result = calculator.subtract(Number(number1), Number(number2));
+            document.getElementById('result').innerHTML = `Result: ${result}`;
+        }
+
+        function multiply() {
+            const number1 = document.getElementById('number1').value;
+            const number2 = document.getElementById('number2').value;
+            const result = calculator.multiply(Number(number1), Number(number2));
+            document.getElementById('result').innerHTML = `Result: ${result}`;
+        }
+
+        function divide() {
+            const number1 = document.getElementById('number1').value;
+            const number2 = document.getElementById('number2').value;
+            const result = calculator.divide(Number(number1), Number(number2));
+            document.getElementById('result').innerHTML = `Result: ${result}`;
+        }
+    </script>
+</body>
+</html>
